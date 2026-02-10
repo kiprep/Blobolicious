@@ -1,0 +1,19 @@
+{
+  "name": "blobolicious",
+  "version": "1.0.0",
+  "description": "Multiplayer 2D soccer game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/screenshot.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "matter-js": "^0.20.0",
+    "socket.io": "^4.7.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^21.0.0",
+    "socket.io-client": "^4.8.3"
+  }
+}

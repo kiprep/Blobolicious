@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blobolicious</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Lobby Screen -->
+  <div id="lobby" class="screen active">
+    <h1>Blobolicious</h1>
+    <p class="subtitle">2D Blob Soccer</p>
+    <div class="menu-buttons">
+      <button id="btn-create">Create Game</button>
+      <button id="btn-join">Join Game</button>
+      <button id="btn-quick">Quick Play</button>
+      <button id="btn-ai">Play vs AI</button>
+    </div>
+
+    <!-- Sub-panels that appear within lobby -->
+    <div id="create-panel" class="panel hidden">
+      <p>Room Code:</p>
+      <p id="room-code" class="code">----</p>
+      <p class="waiting-text">Waiting for opponent...</p>
+      <button id="btn-cancel-create" class="btn-secondary">Cancel</button>
+    </div>
+
+    <div id="join-panel" class="panel hidden">
+      <p>Enter Room Code:</p>
+      <input type="text" id="join-input" maxlength="4" placeholder="ABCD" autocomplete="off">
+      <div class="panel-buttons">
+        <button id="btn-join-submit">Join</button>
+        <button id="btn-cancel-join" class="btn-secondary">Cancel</button>
+      </div>
+      <p id="join-error" class="error hidden"></p>
+    </div>
+
+    <div id="quick-panel" class="panel hidden">
+      <p class="waiting-text">Finding opponent...</p>
+      <button id="btn-cancel-quick" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen">
+    <div id="game-hud">
+      <div id="hud-left">
+        <span id="hud-player-label">Player 1</span>
+      </div>
+      <div id="hud-center">
+        <span id="hud-timer">15</span>
+      </div>
+      <div id="hud-right">
+        <button id="btn-ready">Ready</button>
+      </div>
+    </div>
+    <canvas id="game-canvas"></canvas>
+    <div id="turn-message" class="hidden"></div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="game-over" class="overlay hidden">
+    <h2 id="game-over-text">Player 1 Wins!</h2>
+    <p id="game-over-reason"></p>
+    <div class="menu-buttons">
+      <button id="btn-rematch">Rematch</button>
+      <button id="btn-continue-ai" class="hidden">Continue vs AI</button>
+      <button id="btn-leave">Leave</button>
+    </div>
+  </div>
+
+  <script src="js/matter.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
